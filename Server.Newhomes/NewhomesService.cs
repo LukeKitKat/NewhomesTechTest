@@ -25,7 +25,7 @@ namespace Server.Newhomes
                                    .ToListAsync();
         }
 
-        public async Task AddNewEntryAsync(NumericalModel model)
+        public async Task AddEntryAsync(NumericalModel model)
         {
             await db.AddAsync(model);
             await db.SaveChangesAsync();

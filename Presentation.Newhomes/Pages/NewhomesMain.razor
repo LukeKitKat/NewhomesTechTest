@@ -1,44 +1,41 @@
 ﻿@using Microsoft.AspNetCore.Components.Forms
-<h3>Presentation.Newhomes</h3>
+<h3>Newhomes Technical Test</h3>
 
 <div class="Presentation-Container">
 
-    <p class="NumericInput-Label">1st Number</p>
-    <InputNumber @bind-Value="@Model.Number1" />
-
-    <p class="NumericInput-Label">2st Number</p>
-    <InputNumber @bind-Value="@Model.Number2" />
-
     <div class="Calculator-Container">
-        <p class="Calculator-ResultLabel">
-            Result:
+        <p class="Calculator-Label">1st Number:</p>
+        <InputNumber @bind-Value="@Model.Number1" />
+
+        <p class="Calculator-Label">2st Number:</p>
+        <InputNumber @bind-Value="@Model.Number2" />
+
+        <p class="Calculator-Label">
+            Result: @(Model.Result is null or 0 ? "0" : Model.Result)
         </p>
-        <p class="Calculator-Result">
-            @(Model.Result is null or 0 ? "0" : Model.Result)
-        </p>
-    </div>
 
-    <button onclick="@(() => CalculateNumber())"> Calculate </button>
+        <button onclick="@(() => CalculateNumberAsync())"> Calculate </button>
+    </div>    
 
-    <p>================================================================================</p>
+    <div class="Divider" />
 
-    <table>
-        <tr>
-            <td>Id</td>
-            <td>1st Number</td>
-            <td>2nd Number</td>
-            <td>Result</td>
+    <table class="ExistingTable-Container">
+        <tr class="ExistingTable-Row">
+            <td class="ExistingTable-Header">Id</td>
+            <td class="ExistingTable-Header">1st Number</td>
+            <td class="ExistingTable-Header">2nd Number</td>
+            <td class="ExistingTable-Header">Result</td>
         </tr>
 
         @if (ExistingEntries.Any())
         {
-            @foreach(var entry in ExistingEntries)
+            @foreach (var entry in ExistingEntries)
             {
-                <tr>
-                    <td>@entry.Id</td>
-                    <td>@entry.Number1</td>
-                    <td>@entry.Number2</td>
-                    <td>@entry.Result</td>
+                <tr class="ExistingTable-Row">
+                    <td class="ExistingTable-Body">@entry.Id</td>
+                    <td class="ExistingTable-Body">@entry.Number1</td>
+                    <td class="ExistingTable-Body">@entry.Number2</td>
+                    <td class="ExistingTable-Body">@entry.Result</td>
                 </tr>
             }
         }

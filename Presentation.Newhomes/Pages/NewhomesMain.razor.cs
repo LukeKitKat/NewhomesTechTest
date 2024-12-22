@@ -24,12 +24,24 @@ namespace Presentation.Newhomes.Pages
             ExistingEntries = await Service.GetAllEntriesAsync();
         }
 
-        public async void CalculateNumber()
+        private async Task CalculateNumberAsync()
         {
             Model.Result = Model.Number1 + Model.Number2;
+            await Service.AddEntryAsync(Model);
 
-            await Service.AddNewEntryAsync(Model);
+            RefreshModel();
+            await RefreshTableAsync();
+        }
+
+        private async Task RefreshTableAsync()
+        {
+            ExistingEntries = await Service.GetAllEntriesAsync();
             StateHasChanged();
+        }
+
+        private void RefreshModel()
+        {
+            Model.Id = 0;
         }
     }
 }
