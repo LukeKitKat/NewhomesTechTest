@@ -1,1 +1,23 @@
-﻿<h3>Presentation.Newhomes</h3>
+﻿@using Microsoft.AspNetCore.Components.Forms
+<h3>Presentation.Newhomes</h3>
+
+<div class="Presentation-Container">
+
+    <p class="NumericInput-Label">1st Number</p>
+    <InputNumber @bind-Value="@Model.Number1" />
+
+    <p class="NumericInput-Label">2st Number</p>
+    <InputNumber @bind-Value="@Model.Number2" />
+
+    <div class="Calculator-Container">
+        <p class="Calculator-ResultLabel">
+            Result:
+        </p>
+        <p class="Calculator-Result">
+            @(Model.Result is null or 0 ? "0" : Model.Result)
+        </p>
+    </div>
+
+    <button onclick="@(() => CalculateNumber())"> Calculate </button>
+
+</div>
