@@ -1,0 +1,40 @@
+﻿.Presentation-Container {
+    --gutter: 2rem;
+    --border-standard: 1px solid black;
+    /**/
+    display: flex;
+    flex-direction: column;
+}
+
+.Calculator-Container {
+    display: flex;
+    align-items: center;
+    height: 2rem;
+}
+
+.Calculator-Label {
+    padding-inline: var(--gutter);
+}
+
+.CalculatorResult-Container {
+    width: 5%;
+}
+
+.ExistingTable-Container {
+    margin-inline: var(--gutter);
+    outline: var(--border-standard);
+}
+
+.ExistingTable-Row {
+}
+
+.ExistingTable-Header {
+}
+
+.ExistingTable-Body {
+}
+
+.Divider {
+    margin-block: 3rem;
+    border: var(--border-standard);
+}

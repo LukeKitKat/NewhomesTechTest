@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+<h3>Newhomes Technical Test</h3>
+
+<div class="Presentation-Container">
+
+    <div class="Calculator-Container">
+        <p class="Calculator-Label">1st Number:</p>
+        <InputNumber @bind-Value="@Model.Number1" />
+
+        <p class="Calculator-Label">2st Number:</p>
+        <InputNumber @bind-Value="@Model.Number2" />
+
+        <p class="Calculator-Label">
+            Result: @(Model.Result is null or 0 ? "0" : Model.Result)
+        </p>
+
+        <button onclick="@(() => CalculateNumberAsync())"> Calculate </button>
+    </div>    
+
+    <div class="Divider" />
+
+    <table class="ExistingTable-Container">
+        <tr class="ExistingTable-Row">
+            <td class="ExistingTable-Header">Id</td>
+            <td class="ExistingTable-Header">1st Number</td>
+            <td class="ExistingTable-Header">2nd Number</td>
+            <td class="ExistingTable-Header">Result</td>
+        </tr>
+
+        @if (ExistingEntries.Any())
+        {
+            @foreach (var entry in ExistingEntries)
+            {
+                <tr class="ExistingTable-Row">
+                    <td class="ExistingTable-Body">@entry.Id</td>
+                    <td class="ExistingTable-Body">@entry.Number1</td>
+                    <td class="ExistingTable-Body">@entry.Number2</td>
+                    <td class="ExistingTable-Body">@entry.Result</td>
+                </tr>
+            }
+        }
+    </table>
+
+</div>
