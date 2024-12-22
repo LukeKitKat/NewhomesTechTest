@@ -20,4 +20,28 @@
 
     <button onclick="@(() => CalculateNumber())"> Calculate </button>
 
+    <p>================================================================================</p>
+
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>1st Number</td>
+            <td>2nd Number</td>
+            <td>Result</td>
+        </tr>
+
+        @if (ExistingEntries.Any())
+        {
+            @foreach(var entry in ExistingEntries)
+            {
+                <tr>
+                    <td>@entry.Id</td>
+                    <td>@entry.Number1</td>
+                    <td>@entry.Number2</td>
+                    <td>@entry.Result</td>
+                </tr>
+            }
+        }
+    </table>
+
 </div>

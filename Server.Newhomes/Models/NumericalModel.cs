@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Server.Newhomes.Models
 {
+    [Index(nameof(Id))]
     public class NumericalModel
     {
         public int Id { get; set; }
